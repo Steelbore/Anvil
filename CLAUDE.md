@@ -14,7 +14,7 @@ src/
   cert_authority.rs    @cert-authority / @revoked parser + HashedHost
   relay.rs             bidirectional stdin/stdout/stderr relay
   config.rs            AnvilConfig builder; per-provider constructors
-  error.rs             unified error + SFRS exit codes
+  error.rs             unified error + the canonical exit-code map
   algorithms.rs        KEX/cipher/MAC catalogue + OpenSSH +/-/^/replace + denylist
   retry.rs             RetryPolicy + transient/fatal classifier + jittered backoff
   keygen.rs            Ed25519/ECDSA/RSA keygen in OpenSSH format
@@ -78,7 +78,7 @@ cargo fmt --check
 - **Pinned host keys** — SHA-256 fingerprints for GitHub, GitLab, and Codeberg are embedded in `src/hostkey.rs`.  Update them by fetching the official fingerprint pages and running `cargo test` to verify.
 - **stdout stays clean** — diagnostic output goes to stderr.  The library deliberately exposes no stdout-touching APIs; output framing is the consumer's concern.
 - **Passphrase zeroization** — any `String` holding a passphrase must be wrapped in `Zeroizing<String>`.
-- **Exit codes (when consumed via Gitway's SFRS error mapping):**
+- **Exit codes (when consumed via Gitway's CLI-Standard error mapping):**
   - `0` — success
   - `1` — general / unexpected error
   - `2` — usage error (bad arguments, invalid configuration)

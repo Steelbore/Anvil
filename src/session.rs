@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Rust guideline compliant 2026-03-30
-// Updated 2026-04-12: added verified_fingerprint tracking for SFRS JSON output
+// Updated 2026-04-12: added verified_fingerprint tracking for the CLI Standard's JSON output
 //! SSH session management (FR-1 through FR-5, FR-9 through FR-17).
 //!
 //! [`AnvilSession`] wraps a russh [`client::Handle`] and exposes the

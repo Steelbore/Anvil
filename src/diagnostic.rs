@@ -18,7 +18,7 @@
 //!
 //! JSON mode already carries `timestamp` and `command` in its structured
 //! `{"error": {...}}` blob, so callers should skip this helper on that
-//! path.  Stdout is always left untouched (SFRS Rule 1) — the diagnostic
+//! path.  Stdout is always left untouched (CLI Standard Rule 1) — the diagnostic
 //! writes exclusively to stderr.
 
 use std::path::PathBuf;

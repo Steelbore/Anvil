@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Rust guideline compliant 2026-03-30
-// Updated 2026-04-12: added error_code(), exit_code(), hint() for SFRS Rule 2/5
+// Updated 2026-04-12: added error_code(), exit_code(), hint() for CLI Standard Rule 2/5
 //! Error types for `anvil-ssh`.
 //!
 //! # Examples
@@ -257,7 +257,7 @@ impl AnvilError {
         }
     }
 
-    /// Returns an upper-snake-case error code for structured JSON output (SFRS Rule 5).
+    /// Returns an upper-snake-case error code for structured JSON output (CLI Standard Rule 5).
     ///
     /// | Code | Exit code | Condition |
     /// |------|-----------|-----------|
@@ -280,7 +280,7 @@ impl AnvilError {
         }
     }
 
-    /// Returns the numeric process exit code for this error (SFRS Rule 2).
+    /// Returns the numeric process exit code for this error (CLI Standard Rule 2).
     ///
     /// | Code | Meaning |
     /// |------|---------|
@@ -312,7 +312,7 @@ impl AnvilError {
     /// [`Display`](std::fmt::Display) output already says what went wrong).
     ///
     /// Emitted on stderr after the error message in human mode, and
-    /// carried as the `hint` field in `--json` output (SFRS Rule 5).
+    /// carried as the `hint` field in `--json` output (CLI Standard Rule 5).
     #[must_use]
     pub fn hint(&self) -> &str {
         if let Some(h) = self.custom_hint.as_deref() {
